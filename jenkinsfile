@@ -4,8 +4,10 @@ pipeline {
         docker {
             image 'docker:26.1'
             args '''
-            -v /var/run/docker.sock:/var/run/docker.sock
-            -e DOCKER_CONFIG=/tmp/.docker '''
+              -v /var/run/docker.sock:/var/run/docker.sock
+              --group-add $(getent group docker | cut -d: -f3)
+              -e DOCKER_CONFIG=/tmp/.docker
+            '''
         }
     }
     environment {
