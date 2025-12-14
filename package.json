@@ -1,7 +1,13 @@
 {
   "name": "jenkins-ci-demo",
   "version": "1.0.0",
+  "description": "Simple Express app deployed via Jenkins CI/CD",
+  "main": "index.js",
   "scripts": {
-    "test": "node index.js"
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
   }
 }
+
