@@ -3,7 +3,9 @@ pipeline {
     agent {
         docker {
             image 'docker:26.1'
-            args '-v /var/run/docker.sock:/var/run/docker.sock'
+            args '''
+            -v /var/run/docker.sock:/var/run/docker.sock
+            -e DOCKER_CONFIG=/tmp/.docker '''
         }
     }
     environment {
