@@ -1,15 +1,7 @@
 
 pipeline {
-    agent {
-        docker {
-            image 'docker:26.1'
-            args '''
-              -v /var/run/docker.sock:/var/run/docker.sock
-              --group-add $(getent group docker | cut -d: -f3)
-              -e DOCKER_CONFIG=/tmp/.docker
-            '''
-        }
-    }
+    agent any
+    
     environment {
         DOCKER_IMAGE = "zaraki89/jenkins-ci-demo"
     }
