@@ -44,7 +44,7 @@ pipeline {
                         docker pull $IMAGE:${env.BUILD_NUMBER} &&
                         docker stop app || true &&
                         docker rm app || true &&
-                        docker run -d -p 3000:3000 --name app $IMAGE:${env.BUILD_NUMBER}
+                        docker run -d  --restart unless-stopped -p 3000:3000 --name app $IMAGE:${env.BUILD_NUMBER}
                     '
                     """
                 }
