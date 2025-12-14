@@ -1,7 +1,11 @@
 
 pipeline {
-    agent any
-
+    agent {
+        docker {
+            image 'docker:26.1'
+            args '-v /var/run/docker.sock:/var/run/docker.sock'
+        }
+    }
     environment {
         DOCKER_IMAGE = "zaraki89/jenkins-ci-demo"
     }
