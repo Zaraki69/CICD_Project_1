@@ -52,14 +52,7 @@ pipeline {
     }
 
     post {
-       
-    success {
-        mail to: 'zarakikenpachi2456@gmail.com',
-             subject: "Build Successful",
-             body: "Branch ${env.BRANCH_NAME} build passed"
-    }
-
-
+        success { echo "Pipeline success: ${env.BRANCH_NAME}"}
         failure { echo "Pipeline Failed: ${env.BRANCH_NAME}" }
     }
 }
